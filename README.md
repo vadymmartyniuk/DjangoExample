@@ -2,16 +2,16 @@
 
 This mini guide provides a basic setup of Django project. To manualty recreate this project follow these steps:
 
-1. Creare a seraparate directory:
+1. Creare a separate directory:
 ```
 mkdir ComputationalMethods
 cd ComputationalMethods
 ```
 2. Create `venv` using:
 ```
-python venv .venv
+python -m venv .venv
 ```
-4. If necessary activate it (note that this conmmand OS and terminal specific and provided command is for Windows PS):
+4. If necessary activate it (note that this command is OS and terminal specific; the provided command is for Windows PowerShell):
 ```
 ./.venv/Scripts/activate.ps1
 ```
@@ -39,12 +39,12 @@ class Lab4(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
     # Integration results
-    area1 = models.FloatField() # hold 3 float values, so its field type should be changed
+    area1 = models.FloatField() # holds three float values, so the field type may need adjustment
     area2 = models.FloatField()
     area3 = models.FloatField()
     # other fields
 ```
-15. Next step - is to create necessary tables in database. To do so use commands:
+15. Next step - is to create necessary tables in the database. To do so use commands:
 ```
 python manage.py makemigrations
 python manage.py migrate
@@ -52,7 +52,7 @@ python manage.py migrate
 16. Now it's time to define our endpoints for lab4 app. To do so create ```urls.py``` file inside of ```lab4``` dir. Open this file and type this:
 ```
 from django.urls import path
-from .views import * # shortcur for a while
+from .views import * # shortcur for now
 
 app_name = 'lab4' # app_name that is used in templates
 urlpatterns = [
@@ -127,6 +127,6 @@ def lab4_details_view(request, _id):
 21. In ```settings.py``` add import ```from lab4.views import index``` and replace ```_``` with ```index```
 22. The final step is to define templates. To do so create ```templates``` dir inside of ```lab4``` and just copy HTML files from this repo
 23. At this point everything should be fine and we ready to test our app - ```python manage.py runserver```
-24. Of cource provided model definition is not enough, as well as views now just hardcode area values. To complete this lab you need to define own functions that calculate area and properly call them. To do so use comments inside of this repo. Good luck!
+24. Of course, the provided model definition is not complete, as well as views now just hardcode area values. To complete this lab you need to define own functions that calculate area and properly call them. To do so use comments inside of this repo. Good luck!
 
 
