@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Lab 4 Details{% endblock %}
+
+{% block content %}
+    <h2>Lab 4 Details</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Field</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>{{ lab4_instance.name }}</td>
+                </tr>
+                <tr>
+                    <td>Area 1</td>
+                    <td>{{ lab4_instance.area1 }}</td>
+                </tr>
+                <tr>
+                    <td>Area 2</td>
+                    <td>{{ lab4_instance.area2 }}</td>
+                </tr>
+                <tr>
+                    <td>Area 3</td>
+                    <td>{{ lab4_instance.area3 }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="{% url 'index' %}">Main Page</a></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Lab 4 Entity{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>Create Lab 4 Entry</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render form fields -->
+            <button type="submit">Submit</button>  <!-- Submit button -->
+            <p><a href="{% url 'index' %}">Main Page</a></p>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Lab 4 Instance{% endblock %}
+
+{% block content %}
+    <h2>Select a Lab 4 Instance</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="lab4_instance">Choose an instance:</label>
+        <select name="lab4_instance" id="lab4_instance">
+            {% for instance in lab4_instances %}
+                <option value="{{ instance.id }}">{{ instance.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+        <p><a href="{% url 'index' %}">Main Page</a></p>
+    </form>
+{% endblock %}
