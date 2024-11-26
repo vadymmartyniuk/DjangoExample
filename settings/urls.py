@@ -9,4 +9,6 @@ urlpatterns = [
     path('', index, name='index'),
 
     path('lab4/', include('lab4.urls')),
+    # path('lab6/', include('lab6.urls'))
+    path('api/lab6/', include('lab6.api.urls')),
 ]
